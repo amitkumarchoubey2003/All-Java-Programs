@@ -1,29 +1,39 @@
-import java.util.Scanner;
+//Java program to find Armstrong number
 
-public class ArmstrongNumber {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the start of the range: ");
-        int start = scanner.nextInt();
-        System.out.println("Enter the end of the range: ");
-        int end = scanner.nextInt();
 
-        System.out.println("Armstrong numbers in the range: ");
-        for (int i = start; i <= end; i++) {
-            if (isArmstrong(i)) {
-                System.out.print(i + " ");
-            }
-        }
-    }
 
-    public static boolean isArmstrong(int num) {
-        int sum = 0;
-        int temp = num;
-        while (temp != 0) {
-            int digit = temp % 10;
-            sum += digit * digit * digit;
-            temp /= 10;
-        }
-        return sum == num;
-    }
-}
+ public class ArmstrongNumber
+ {
+      public static void main(String args[])
+      {
+
+             int n, arg, sum = 0, r;
+ 
+             n = 153; // input value
+             arg = n;
+             for (int i = 1; i < n; i++)
+             {
+
+                      while (n > 0)
+                      {
+
+                        r = n % 10;
+                        sum = sum + (r * r * r);
+                        n = n / 10;
+ 
+                      }
+ 
+             }
+             if (arg == sum)
+             {
+
+                     System.out.println("Given number is armstrong number: " + arg);
+             }
+             else
+             {
+
+                     System.out.println("Given number is not armstrong number: " + arg);
+             }
+      }
+ 
+ }

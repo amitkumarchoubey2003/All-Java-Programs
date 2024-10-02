@@ -3,18 +3,24 @@ import java.util.Scanner;
 public class Factorial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a positive integer: ");
-        int num = scanner.nextInt();
-        scanner.close();
 
-        if (num < 0) {
-            System.out.println("No: Factorial is not found.");
+        // Input a number from the user
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        // Calculate and print the factorial
+        long factorial = calculateFactorial(num);
+        System.out.println("Factorial of " + num + " is: " + factorial);
+
+        scanner.close();
+    }
+
+    // Function to calculate the factorial of a number
+    private static long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
         } else {
-            long factorial = 1;
-            for (int i = 1; i <= num; i++) {
-                factorial *= i;
-            }
-            System.out.println("Factorial of " + num + " = " + factorial);
+            return n * calculateFactorial(n - 1);
         }
     }
 }
